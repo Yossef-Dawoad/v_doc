@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ColorsPalette {
-  static const Color primaryColor = Color(0xFF6200EE);
-  static const Color textGray = Color(0xFF3A3A3A);
+  static const Color primaryColor = Color.fromARGB(255, 23, 65, 255);
+  static const Color textGray = Color.fromARGB(255, 126, 126, 126);
 }
