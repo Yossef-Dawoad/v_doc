@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_hub/core/themes/colors.dart';
 import 'package:recipe_hub/core/themes/styles.dart';
 
 class TermsAndConditionTextMin extends StatelessWidget {
