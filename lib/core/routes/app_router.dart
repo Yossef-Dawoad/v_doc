@@ -5,16 +5,14 @@ import 'package:recipe_hub/features/login/view/screens/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
 
 class AppRouter {
-  Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.onBoardingScreens:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
-      default:
-        return _errorRoute(settings.name);
-    }
-  }
+  Route<dynamic> onGenerateRoute(RouteSettings settings) =>
+      switch (settings.name) {
+        Routes.loginScreen =>
+          MaterialPageRoute(builder: (_) => const LoginScreen()),
+        Routes.onBoardingScreens =>
+          MaterialPageRoute(builder: (_) => const OnBoardingScreen()),
+        _ => _errorRoute(settings.name)
+      };
 
   static Route<dynamic> _errorRoute(String? pageName) {
     return MaterialPageRoute(
