@@ -3,16 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'response_body.g.dart';
 
 @JsonSerializable()
-class LoginResponse {
+class SignUpResponse {
   String? message;
   UserData? userData;
   bool? status;
   int? code;
 
-  LoginResponse({this.message, this.userData, this.status, this.code});
+  SignUpResponse({this.message, this.status, this.code});
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+  factory SignUpResponse.fromJson(Map<String, dynamic> json) =>
+      _$SignUpResponseFromJson(json);
 }
 
 @JsonSerializable()

@@ -29,4 +29,18 @@ final class _$APIService extends APIService {
     );
     return client.send<LoginResponse, LoginResponse>($request);
   }
+
+  @override
+  Future<Response<SignUpResponse>> signUp(SignUpRequestBody signUpRequestBody) {
+    final Uri $url =
+        Uri.parse('https://vcare.integration25.com/api/auth/register');
+    final $body = signUpRequestBody;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<SignUpResponse, SignUpResponse>($request);
+  }
 }

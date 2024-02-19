@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CutomTextBtn extends StatelessWidget {
+class CustomTextBtn extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final double? borderRadius;
   final double? width;
   final double? height;
   final EdgeInsets? padding;
-  const CutomTextBtn({
+  const CustomTextBtn({
     super.key,
     required this.text,
     required this.onPressed,

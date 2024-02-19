@@ -15,7 +15,12 @@ class DocAppBar extends StatelessWidget {
       children: [
         SvgPicture.asset('./assets/svgs/doc_logo.svg'),
         SizedBox(width: 10.w),
-        Text('DocDoc', style: TextStyles.f24w700black),
+        Text(
+          'DocDoc',
+          style: TextStyles.f24w700white.copyWith(
+            color: Colors.black,
+          ),
+        ),
       ],
     );
   }

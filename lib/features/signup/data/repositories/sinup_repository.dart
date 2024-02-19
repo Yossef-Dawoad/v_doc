@@ -6,16 +6,16 @@ import '../models/request_body.dart';
 
 typedef FutureResult<T, E> = Future<Result<T, E>>;
 
-class LoginRepository {
+class SignUpRepository {
   final APIService _apiService;
 
-  LoginRepository(this._apiService);
+  SignUpRepository(this._apiService);
 
-  FutureResult<TypeResponse, ServerError> login(
-    LoginRequestBody loginRequestBody,
+  FutureResult<TypeResponse, ServerError> signUp(
+    SignUpRequestBody signUpRequestBody,
   ) async {
     try {
-      final response = await _apiService.login(loginRequestBody);
+      final response = await _apiService.signUp(signUpRequestBody);
       return Result.success(response);
     } catch (error) {
       return Result.failure(ServerError(msg: error.toString()));

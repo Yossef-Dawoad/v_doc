@@ -8,9 +8,15 @@ class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle f24w700black = TextStyle(
-    fontSize: 24.sp,
-    fontWeight: FontWeight.w700,
+  static TextStyle f13w400gray = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    color: ColorsPalette.textGray,
+  );
+
+  static TextStyle f18w400black = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
     color: Colors.black,
   );
 
@@ -24,10 +30,5 @@ class TextStyles {
     fontSize: 32.sp,
     fontWeight: FontWeight.w900,
     color: ColorsPalette.primaryColor,
-  );
-  static TextStyle f13w400gray = TextStyle(
-    fontSize: 12.sp,
-    fontWeight: FontWeight.w200,
-    color: ColorsPalette.textGray,
   );
 }
