@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
 
-import 'package:recipe_hub/core/networking/constants.dart';
+import 'package:recipe_hub/core/networking/api_constants.dart';
 import 'package:recipe_hub/features/login/data/models/request_body.dart';
 import 'package:recipe_hub/features/login/data/models/response_body.dart';
 import 'package:recipe_hub/features/signup/data/models/request_body.dart';
@@ -34,6 +34,7 @@ abstract class APIService extends ChopperService {
       client ??
           ChopperClient(
             services: [_$APIService()],
+            converter: const JsonConverter(),
             interceptors: [
               HttpLoggingInterceptor(),
               const HeadersInterceptor({'Cache-Control': 'no-cache'}),

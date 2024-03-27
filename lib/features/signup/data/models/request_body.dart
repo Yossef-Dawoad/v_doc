@@ -24,4 +24,7 @@ class SignUpRequestBody {
   });
 
   Map<String, dynamic> toJson() => _$SignUpRequestBodyToJson(this);
+
+  factory SignUpRequestBody.fromJson(Map<String, dynamic> json) =>
+      _$SignUpRequestBodyFromJson(json);
 }

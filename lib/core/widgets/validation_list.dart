@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_hub/core/themes/styles.dart';
 
-class ValidationTodoList extends StatelessWidget {
+class AuthValidationList extends StatelessWidget {
   final bool hasLowerCase;
   final bool hasUpperCase;
   final bool hasDigits;
   final bool hasSpecialCharacters;
   final bool hasMinLenght;
 
-  const ValidationTodoList({
+  const AuthValidationList({
     super.key,
     required this.hasLowerCase,
     required this.hasUpperCase,

@@ -3,21 +3,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_hub/core/utils/regex/regex_manager.dart';
 import 'package:recipe_hub/core/widgets/app_form_field.dart';
 import 'package:recipe_hub/core/widgets/app_text_btn.dart';
-import 'package:recipe_hub/features/login/data/models/request_body.dart';
-import 'package:recipe_hub/features/login/logic/cubit/login_cubit.dart';
-import '../../../../../core/widgets/validation_list.dart';
+import 'package:recipe_hub/core/widgets/validation_list.dart';
 
-class AuthentecationForm extends StatefulWidget {
-  const AuthentecationForm({super.key});
+import 'package:recipe_hub/features/signup/data/models/request_body.dart';
+import 'package:recipe_hub/features/signup/logic/cubit/signup_cubit.dart';
+
+class AuthentecationSignUpForm extends StatefulWidget {
+  const AuthentecationSignUpForm({super.key});
 
   @override
-  State<AuthentecationForm> createState() => _AuthentecationFormState();
+  State<AuthentecationSignUpForm> createState() =>
+      _AuthentecationSignUpFormState();
 }
 
-class _AuthentecationFormState extends State<AuthentecationForm> {
+class _AuthentecationSignUpFormState extends State<AuthentecationSignUpForm> {
   final formkey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
 
   bool isObscureText = true;
 
@@ -35,8 +39,10 @@ class _AuthentecationFormState extends State<AuthentecationForm> {
 
   @override
   void dispose() {
+    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    passwordConfirmController.dispose();
     super.dispose();
   }
 
@@ -47,8 +53,14 @@ class _AuthentecationFormState extends State<AuthentecationForm> {
       child: Column(
         children: [
           CustomFormField(
+            hintText: 'Name',
+            validator: (val) => _baseValidatation(val, 'Name is required'),
+            controller: nameController,
+          ),
+          const SizedBox(height: 18),
+          CustomFormField(
             hintText: 'Email',
-            validator: (val) => _baseValidatation(val, 'Email is required'),
+            validator: (val) => _emailValidatation(val, 'Email is required'),
             controller: emailController,
           ),
           const SizedBox(height: 18),
@@ -65,6 +77,25 @@ class _AuthentecationFormState extends State<AuthentecationForm> {
             ),
           ),
           const SizedBox(height: 18),
+          CustomFormField(
+            hintText: 'Confirm Password',
+            controller: passwordConfirmController,
+            validator: (val) {
+              final err =
+                  _baseValidatation(val, 'Password Confirmation is required');
+              if (err != null) return err;
+              if (val == passwordController.text.trim()) return null;
+              return 'Password Confirmation Didnot match';
+            },
+            obscureText: isObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () => setState(() => isObscureText = !isObscureText),
+              child: Icon(
+                isObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
+          ),
+          const SizedBox(height: 18),
           AuthValidationList(
             hasLowerCase: hasLowerCase,
             hasUpperCase: hasUpperCase,
@@ -72,15 +103,10 @@ class _AuthentecationFormState extends State<AuthentecationForm> {
             hasSpecialCharacters: hasSpecialCharacters,
             hasMinLenght: hasMinLenght,
           ),
-          const SizedBox(height: 24.0),
-          const Align(
-            alignment: AlignmentDirectional.centerEnd,
-            child: Text('Forget Password?'),
-          ),
           const SizedBox(height: 40),
           CustomTextBtn(
-            text: 'Login',
-            onPressed: () => _validateThenPerfromLogin(context),
+            text: 'Sign Up',
+            onPressed: () => _validateThenPerfromSignUp(context),
           ),
         ],
       ),
@@ -88,19 +114,28 @@ class _AuthentecationFormState extends State<AuthentecationForm> {
   }
 
   String? _baseValidatation(String? val, String errMessage) {
+    if (val == null || val.isEmpty) {
+      return errMessage;
+    }
+    return null;
+  }
+
+  String? _emailValidatation(String? val, String errMessage) {
     if (val == null || val.isEmpty || !RegexManager.isEmailValid(val)) {
       return errMessage;
     }
     return null;
   }
 
-  void _validateThenPerfromLogin(BuildContext context) {
-    final loginCubit = context.read<LoginCubit>();
+  void _validateThenPerfromSignUp(BuildContext context) {
+    final signupCubit = context.read<SignupCubit>();
     if (formkey.currentState!.validate()) {
-      loginCubit.emitLoginState(
-        reqeuestBody: LoginRequestBody(
-          email: emailController.text,
-          password: passwordController.text,
+      signupCubit.emitSignUpState(
+        reqeuestBody: SignUpRequestBody(
+          name: nameController.text.trim(),
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+          passwordConfirmation: passwordConfirmController.text.trim(),
         ),
       );
     }

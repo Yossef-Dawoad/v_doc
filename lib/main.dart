@@ -7,8 +7,8 @@ import 'core/di/dependency_inject.dart';
 import 'core/routes/app_router.dart';
 
 void main() {
-  _setupLogging();
   initializeDependence();
+  _setupLogging();
   runApp(DocApp(router: AppRouter()));
 }
 
@@ -16,8 +16,11 @@ void main() {
 // the following setup.
 void _setupLogging() {
   Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((rec) {
-    if (kDebugMode)
-      debugPrint('${rec.level.name}: ${rec.time}: ${rec.message}');
-  });
+  Logger.root.onRecord.listen(
+    (rec) {
+      if (kDebugMode) {
+        debugPrint('${rec.level.name}: ${rec.time}: ${rec.message}');
+      }
+    },
+  );
 }

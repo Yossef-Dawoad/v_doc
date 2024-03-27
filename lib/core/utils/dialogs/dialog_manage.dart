@@ -26,25 +26,35 @@ enum DialogType {
 customDialogPopUp(
   BuildContext context,
   String message, [
+  DialogType dialogType = DialogType.info,
   bool barrierDismissible = false,
+  VoidCallback? onConfirm,
+  VoidCallback? onCancel,
 ]) =>
     showDialog(
       context: context,
-      builder: (context) => const CustomBasicDialog(description: 'alert'),
+      builder: (context) => CustomBasicDialog(
+        description: message,
+        dialogType: dialogType,
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+      ),
       barrierDismissible: barrierDismissible,
     );
 
 class CustomBasicDialog extends StatelessWidget {
   const CustomBasicDialog({
     super.key,
+    required this.description,
     this.dialogType = DialogType.info,
     this.onConfirm,
-    required this.description,
+    this.onCancel,
   });
 
   final String description;
   final DialogType dialogType;
   final VoidCallback? onConfirm;
+  final VoidCallback? onCancel;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +67,7 @@ class CustomBasicDialog extends StatelessWidget {
         children: [
           Container(
             height: 80.0,
-            width: MediaQuery.of(context).size.width * 0.4,
+            // width: MediaQuery.of(context).size.width * 0.4,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
@@ -68,27 +78,36 @@ class CustomBasicDialog extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(dialogType.icon),
+                Icon(
+                  dialogType.icon,
+                  color: Colors.white,
+                ),
                 const SizedBox(width: 8.0),
                 Text(
                   dialogType.label,
-                  style: TextStyles.f24w700white,
+                  style: TextStyles.f18w400black.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 16.0),
-          Text(description),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12),
+            child: Text(description),
+          ),
           const SizedBox(height: 16.0),
           switch (dialogType) {
-            DialogType.info => _buildTextBtn(context, 'Ok'),
+            DialogType.info => _buildTextBtn(context, 'Ok', onConfirm),
             DialogType.confirm => Row(
                 children: [
-                  _buildTextBtn(context, 'Cancel'),
+                  _buildTextBtn(context, 'Cancel', onCancel),
                   _buildTextBtn(context, 'Ok', onConfirm),
                 ],
               ),
-            _ => const Text('OK'),
+            _ => _buildTextBtn(context, 'Ok', onConfirm),
           },
           const SizedBox(height: 8.0),
         ],

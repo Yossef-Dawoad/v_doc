@@ -5,6 +5,10 @@ import 'package:recipe_hub/core/routes/routes.dart';
 import 'package:recipe_hub/core/themes/colors.dart';
 import 'package:recipe_hub/core/themes/styles.dart';
 import 'package:recipe_hub/core/utils/extensions/route.dart';
+import 'package:recipe_hub/core/widgets/terms_condition.dart';
+
+import 'widgets/signup_authenticate_form.dart';
+import 'widgets/signup_bloc_listener.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -31,9 +35,9 @@ class SignupScreen extends StatelessWidget {
                 const SizedBox(height: 36),
                 Column(
                   children: [
-                    //TODO FORM HERE
+                    AuthentecationSignUpForm(),
                     const SizedBox(height: 16),
-                    //TODO  TermsAndConditionsText(),
+                    TermsAndConditionTextMin(),
                     const SizedBox(height: 30),
                     RichText(
                       textAlign: TextAlign.center,
@@ -49,13 +53,12 @@ class SignupScreen extends StatelessWidget {
                                 .copyWith(color: ColorsPalette.primaryColor),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () => context.pushReplacementNamedRoute(
-                                    Routes.loginScreen,
-                                  ),
+                                  Routes.loginScreen),
                           ),
                         ],
                       ),
                     ),
-                    // TODO SignupBlocListener(),
+                    SignUpBlocListener(),
                   ],
                 ),
               ],

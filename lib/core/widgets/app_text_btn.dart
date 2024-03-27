@@ -28,7 +28,7 @@ class CustomTextBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
           ),
         ),
-        backgroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(Colors.blue.withAlpha(30)),
         fixedSize: MaterialStateProperty.all(
           Size(width?.w ?? double.maxFinite, height?.h ?? 50.h),
         ),
@@ -40,7 +40,10 @@ class CustomTextBtn extends StatelessWidget {
               ),
         ),
       ),
-      child: Text(text),
+      child: Text(
+        text,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
     );
   }
 }

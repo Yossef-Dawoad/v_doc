@@ -3,6 +3,7 @@ import 'package:recipe_hub/core/networking/api_service.dart';
 import 'package:recipe_hub/core/utils/types/result_type.dart';
 
 import '../models/request_body.dart';
+import '../models/response_body.dart';
 
 typedef FutureResult<T, E> = Future<Result<T, E>>;
 
@@ -11,7 +12,7 @@ class SignUpRepository {
 
   SignUpRepository(this._apiService);
 
-  FutureResult<TypeResponse, ServerError> signUp(
+  FutureResult<TypeResponse<SignUpResponse>, ServerError> signUp(
     SignUpRequestBody signUpRequestBody,
   ) async {
     try {

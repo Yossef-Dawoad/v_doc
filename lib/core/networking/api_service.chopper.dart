@@ -6,6 +6,7 @@ part of 'api_service.dart';
 // ChopperGenerator
 // **************************************************************************
 
+// coverage:ignore-file
 // ignore_for_file: type=lint
 final class _$APIService extends APIService {
   _$APIService([ChopperClient? client]) {
@@ -14,7 +15,7 @@ final class _$APIService extends APIService {
   }
 
   @override
-  final definitionType = APIService;
+  final Type definitionType = APIService;
 
   @override
   Future<Response<LoginResponse>> login(LoginRequestBody loginRequestBody) {

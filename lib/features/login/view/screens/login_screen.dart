@@ -8,7 +8,7 @@ import 'package:recipe_hub/core/utils/extensions/route.dart';
 
 import 'widgets/authenticate_form.dart';
 import 'widgets/login_bloc_listener.dart';
-import 'widgets/terms_condition.dart';
+import '../../../../core/widgets/terms_condition.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -21,7 +21,9 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 40.h),
                 Text(
                   'Welcome Back',
                   style: TextStyles.f24w700white
@@ -44,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Want to have an account?',
+                            text: "Don't to have an account?",
                             style: TextStyles.f13w400gray,
                           ),
                           TextSpan(
