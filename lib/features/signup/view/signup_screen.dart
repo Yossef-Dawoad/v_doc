@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipe_hub/core/routes/routes.dart';
-import 'package:recipe_hub/core/themes/colors.dart';
-import 'package:recipe_hub/core/themes/styles.dart';
-import 'package:recipe_hub/core/utils/extensions/route.dart';
-import 'package:recipe_hub/core/widgets/terms_condition.dart';
+import 'package:v_doc/core/routes/routes.dart';
+import 'package:v_doc/core/themes/colors.dart';
+import 'package:v_doc/core/themes/styles.dart';
+import 'package:v_doc/core/utils/extensions/route.dart';
+import 'package:v_doc/core/widgets/terms_condition.dart';
 
 import 'widgets/signup_authenticate_form.dart';
 import 'widgets/signup_bloc_listener.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipe_hub/core/themes/colors.dart';
+import 'package:v_doc/core/themes/colors.dart';
 
 class TextStyles {
   static const TextStyle title = TextStyle(

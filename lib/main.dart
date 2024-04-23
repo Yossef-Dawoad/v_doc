@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:recipe_hub/doc_app.dart';
+import 'package:v_doc/doc_app.dart';
 
 import 'core/di/dependency_inject.dart';
 import 'core/routes/app_router.dart';

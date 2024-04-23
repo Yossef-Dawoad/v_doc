@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_hub/core/utils/regex/regex_manager.dart';
-import 'package:recipe_hub/core/widgets/app_form_field.dart';
-import 'package:recipe_hub/core/widgets/app_text_btn.dart';
-import 'package:recipe_hub/core/widgets/validation_list.dart';
+import 'package:v_doc/core/utils/regex/regex_manager.dart';
+import 'package:v_doc/core/widgets/app_form_field.dart';
+import 'package:v_doc/core/widgets/app_text_btn.dart';
+import 'package:v_doc/core/widgets/validation_list.dart';
 
-import 'package:recipe_hub/features/signup/data/models/request_body.dart';
-import 'package:recipe_hub/features/signup/logic/cubit/signup_cubit.dart';
+import 'package:v_doc/features/signup/data/models/request_body.dart';
+import 'package:v_doc/features/signup/logic/cubit/signup_cubit.dart';
 
 class AuthentecationSignUpForm extends StatefulWidget {
   const AuthentecationSignUpForm({super.key});
