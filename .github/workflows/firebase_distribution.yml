@@ -1,0 +1,40 @@
+name: "Build and Deploy Firebase Distribution"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  distribution_to_firebase:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: SETUP JDK 18
+      uses: actions/setup-java@v4
+      with:
+        java-version: '18'
+        distribution: 'temurin'
+
+    - name: SETUP Ruby 
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+        working-directory: android
+
+    - name: SETUP Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+
+    - name: Build and Deploy
+      env: 
+        FIREBASE_CLI_SECRET: ${{ secrets.FIREBASE_CLI_SECRET }}
+        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+      run: |
+        bundle exec fastlane android firebase_distribute
+      working-directory: android  
+    
+    
