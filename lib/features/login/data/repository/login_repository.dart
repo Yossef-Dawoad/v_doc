@@ -1,6 +1,6 @@
-import 'package:recipe_hub/core/errors/server_errors.dart';
-import 'package:recipe_hub/core/networking/api_service.dart';
-import 'package:recipe_hub/core/utils/types/result_type.dart';
+import 'package:v_doc/core/errors/server_errors.dart';
+import 'package:v_doc/core/networking/api_service.dart';
+import 'package:v_doc/core/utils/types/result_type.dart';
 
 import '../models/request_body.dart';
 

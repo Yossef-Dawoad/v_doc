@@ -1,10 +1,10 @@
 import 'package:chopper/chopper.dart';
 
-import 'package:recipe_hub/core/networking/api_constants.dart';
-import 'package:recipe_hub/features/login/data/models/request_body.dart';
-import 'package:recipe_hub/features/login/data/models/response_body.dart';
-import 'package:recipe_hub/features/signup/data/models/request_body.dart';
-import 'package:recipe_hub/features/signup/data/models/response_body.dart';
+import 'package:v_doc/core/networking/api_constants.dart';
+import 'package:v_doc/features/login/data/models/request_body.dart';
+import 'package:v_doc/features/login/data/models/response_body.dart';
+import 'package:v_doc/features/signup/data/models/request_body.dart';
+import 'package:v_doc/features/signup/data/models/response_body.dart';
 
 part 'api_service.chopper.dart';
 

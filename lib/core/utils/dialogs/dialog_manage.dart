@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_hub/core/themes/styles.dart';
+import 'package:v_doc/core/themes/styles.dart';
 
 enum DialogType {
   info('Info', Icons.info),

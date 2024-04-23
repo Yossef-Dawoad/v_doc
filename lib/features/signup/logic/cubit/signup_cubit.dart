@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:recipe_hub/features/signup/data/models/request_body.dart';
-import 'package:recipe_hub/features/signup/data/repositories/signup_repository.dart';
+import 'package:v_doc/features/signup/data/models/request_body.dart';
+import 'package:v_doc/features/signup/data/repositories/signup_repository.dart';
 
 part 'signup_state.dart';
 part 'signup_cubit.freezed.dart';

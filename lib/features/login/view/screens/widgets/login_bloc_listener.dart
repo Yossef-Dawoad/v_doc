@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_hub/core/routes/routes.dart';
-import 'package:recipe_hub/core/themes/colors.dart';
-import 'package:recipe_hub/core/utils/dialogs/dialog_manage.dart';
-import 'package:recipe_hub/core/utils/extensions/route.dart';
-import 'package:recipe_hub/features/login/logic/cubit/login_cubit.dart';
+import 'package:v_doc/core/routes/routes.dart';
+import 'package:v_doc/core/themes/colors.dart';
+import 'package:v_doc/core/utils/dialogs/dialog_manage.dart';
+import 'package:v_doc/core/utils/extensions/route.dart';
+import 'package:v_doc/features/login/logic/cubit/login_cubit.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
