@@ -63,8 +63,8 @@ android {
         }
         development {
             dimension "default"
-            resValue "string", "app_name", "V Doc Development"
             applicationIdSuffix ".dev"
+            resValue "string", "app_name", "V Doc Development"
         }
     }
 
