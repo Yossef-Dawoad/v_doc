@@ -8,7 +8,8 @@ import 'core/di/dependency_inject.dart';
 import 'core/routes/app_router.dart';
 
 Future<void> main() async {
-  initializeDependence();
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependence();
   // wait for window size to be initialized
   // fix font loading isuess with .sp sizing in release Mode
   await ScreenUtil.ensureScreenSize();

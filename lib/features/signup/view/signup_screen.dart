@@ -35,9 +35,9 @@ class SignupScreen extends StatelessWidget {
                 const SizedBox(height: 36),
                 Column(
                   children: [
-                    AuthentecationSignUpForm(),
+                    const AuthentecationSignUpForm(),
                     const SizedBox(height: 16),
-                    TermsAndConditionTextMin(),
+                    const TermsAndConditionTextMin(),
                     const SizedBox(height: 30),
                     RichText(
                       textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class SignupScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SignUpBlocListener(),
+                    const SignUpBlocListener(),
                   ],
                 ),
               ],

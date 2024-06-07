@@ -8,7 +8,7 @@
       "program": "lib/main_development.dart",
       "args": [
         "--flavor",
-        "Development",
+        "development",
         "--target",
         "lib/main_development.dart"
       ]
@@ -20,7 +20,7 @@
       "program": "lib/main_production.dart",
       "args": [
         "--flavor",
-        "Production",
+        "production",
         "--target",
         "lib/main_production.dart"
       ]

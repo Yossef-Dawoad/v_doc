@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
@@ -79,4 +76,14 @@ class DefaultFirebaseOptions {
     storageBucket: 'vdoc-app.appspot.com',
     measurementId: 'G-8ZDVMQ0QDH',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCRA-z66WjK4R_CobHdtoWRgsyJJwtXhrU',
+    appId: '1:875965949091:ios:e3261400783696f5600b16',
+    messagingSenderId: '875965949091',
+    projectId: 'vdoc-app',
+    storageBucket: 'vdoc-app.appspot.com',
+    iosBundleId: 'com.example.recipeHub',
+  );
+
 }

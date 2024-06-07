@@ -23,16 +23,16 @@ class CustomTextBtn extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        shape: MaterialStateProperty.all(
+        shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
           ),
         ),
-        backgroundColor: MaterialStateProperty.all(Colors.blue.withAlpha(30)),
-        fixedSize: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(Colors.blue.withAlpha(30)),
+        fixedSize: WidgetStateProperty.all(
           Size(width?.w ?? double.maxFinite, height?.h ?? 50.h),
         ),
-        padding: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(
           padding ??
               EdgeInsets.symmetric(
                 horizontal: 12.w,

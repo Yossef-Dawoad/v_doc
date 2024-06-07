@@ -33,16 +33,16 @@ class OnBoardingScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () => context.pushNamedRoute(Routes.loginScreen),
                   style: ButtonStyle(
-                    padding: MaterialStateProperty.all(
+                    padding: WidgetStateProperty.all(
                       const EdgeInsets.symmetric(
                           horizontal: 12.0, vertical: 8.0),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all(ColorsPalette.primaryColor),
-                    minimumSize: MaterialStateProperty.all(
+                        WidgetStateProperty.all(ColorsPalette.primaryColor),
+                    minimumSize: WidgetStateProperty.all(
                       Size(double.infinity, 52.h),
                     ),
-                    shape: MaterialStateProperty.all(
+                    shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16.0)),
                     ),
