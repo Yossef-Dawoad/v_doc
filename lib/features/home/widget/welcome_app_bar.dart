@@ -6,29 +6,29 @@ class WelcomeHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Hi, Yousef!', style: Theme.of(context).textTheme.titleMedium),
-            Text(
-              'How Are you Today?',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: ColorsPalette.textGray,
-                  ),
-            ),
-          ],
+    return const ListTile(
+      contentPadding: EdgeInsets.all(0),
+      title: Text(
+        'Hi, Yousef!',
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
         ),
-        const Spacer(),
-        const CircleAvatar(
-          radius: 24.0,
-          backgroundColor: ColorsPalette.brightGery,
-          child: Badge(
-            child: Icon(Icons.notifications),
-          ),
-        )
-      ],
+      ),
+      subtitle: Text(
+        'How are you today?',
+        style: TextStyle(
+          fontSize: 14,
+          color: Colors.grey,
+        ),
+      ),
+      trailing: CircleAvatar(
+        radius: 22.0,
+        backgroundColor: ColorsPalette.brightGery,
+        child: Badge(
+          child: Icon(Icons.notifications),
+        ),
+      ),
     );
   }
 }
