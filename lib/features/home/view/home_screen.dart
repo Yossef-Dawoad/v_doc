@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:v_doc/core/widgets/headline_title_row.dart';
 import 'package:v_doc/features/home/widget/welcome_app_bar.dart';
+
+import '../widget/find_doc_banner.dart';
+import '../widget/specialty_categories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,6 +21,9 @@ class HomeScreen extends StatelessWidget {
             children: [
               WelcomeHomeAppBar(),
               FindDoctorPrimaryBanner(),
+              SizedBox(height: 20),
+              SpecialltyCategories(),
+              RecommededDoctorsList(),
             ],
           ),
         ),
@@ -28,63 +32,76 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class FindDoctorPrimaryBanner extends StatelessWidget {
-  const FindDoctorPrimaryBanner({super.key});
+class RecommededDoctorsList extends StatelessWidget {
+  const RecommededDoctorsList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 195.h,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
+    return Expanded(
+      child: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 165.h,
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(24.0)),
-              image: DecorationImage(
-                image: AssetImage('assets/images/blue_bg_banner.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Book and\nschedule with\nnearest doctor',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 16.h),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-                      textStyle: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff227cff),
-                      ),
-                    ),
-                    child: const Text('Find Nearby'),
-                  ),
-                ),
-              ],
+          HeadlineTitleRow(
+            title: 'Recommnedation Doctors',
+            onSeeAllPressed: () {},
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => DoctorCard(),
             ),
           ),
-          Positioned(
-            right: 8.w,
-            child: Image.asset(
-              'assets/images/female_doc.png',
-              height: 200.h,
+        ],
+      ),
+    );
+  }
+}
+
+class DoctorCard extends StatelessWidget {
+  const DoctorCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        // color: Colors.red,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: SizedBox(
+              height: 130,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: const Image(
+                  image: AssetImage('assets/images/female_doc.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          )
+          ),
+          const Expanded(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Doctor Name',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    'Specialty | Hospital',
+                    style: TextStyle(fontSize: 14, color: Colors.blueGrey),
+                  ),
+                  const Text('Rating'),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
