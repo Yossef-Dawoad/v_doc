@@ -10,6 +10,7 @@ import 'core/routes/app_router.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDependence();
+  
   // wait for window size to be initialized
   // fix font loading isuess with .sp sizing in release Mode
   await ScreenUtil.ensureScreenSize();

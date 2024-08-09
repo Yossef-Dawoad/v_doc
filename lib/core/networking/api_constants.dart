@@ -1,9 +1,14 @@
-class APIConstants {
-  static const String apiBaseUrl = 'https://vcare.integration25.com/api/';
+class APIEndpoints {
+  static const String BaseUrl = 'https://vcare.integration25.com/api/';
 
   //----------------- Auth Endpoints -----------------//
-  static const String login = 'auth/login';
-  static const String signUp = 'auth/register';
+
+  static const String authEP = '/auth';
+  static const String login = '/login';
+  static const String signUp = '/register';
+
+  //----------------- Doctors Endpoints -----------------//
+  static const String specializationEP = '/specialization/index';
 }
 
 // class APIErrors {
